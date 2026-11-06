@@ -1,5 +1,11 @@
-*.venv/
-*__pycache__/
-*TEMP/
-*assets/
-*data/
+# Python
+__pycache__/
+
+# Virtual Environment
+.venv/
+
+# Temporary
+TEMP/
+
+# Personal Data
+data/
