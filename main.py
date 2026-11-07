@@ -1,4 +1,4 @@
-from tkinter import BooleanVar, IntVar
+from tkinter import BooleanVar, IntVar, Tk
 
 from PhoneBook import shared
 from PhoneBook.models.contact import create_contacts_ui
@@ -13,7 +13,7 @@ from PhoneBook.core.window import create_window
 
 
 
-def main():
+def main() -> Tk:
     # Window
     shared.root = create_window()
     configure_window_style()
