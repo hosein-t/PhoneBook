@@ -53,7 +53,7 @@ PhoneBook/
 ابتدا مخزن را Clone کنید:
 
 ```bash
-git clone REPOSITORY_URL
+git clone https://github.com/hosein-t/PhoneBook
 ```
 
 و وارد پوشهٔ پروژه شوید:
