@@ -3,7 +3,6 @@ from PhoneBook import shared
 
 
 
-
 def configure_window_style():
     shared.root.update_idletasks()
 
