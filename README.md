@@ -16,6 +16,20 @@
 - رابط کاربری فارسی با طراحی مدرن و Dark
 - و سایر امکانات کاربردی...
 
+## 📸 Screenshots
+
+### Contacts
+![Contacts](screenshots/contacts.png)
+
+### Groups
+![Groups](screenshots/groups.png)
+
+### Favorites
+![Favorites](screenshots/favorites.png)
+
+### Add Contact
+![Add Contact](screenshots/add_contact.png)
+
 ## 🛠️ تکنولوژی‌ها و کتابخانه‌ها
 
 - Python
