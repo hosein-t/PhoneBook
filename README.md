@@ -51,6 +51,7 @@ PhoneBook/
 ├── assets/
 ├── core/
 ├── models/
+├── screenshots/
 ├── ui/
 ├── utils/
 │
