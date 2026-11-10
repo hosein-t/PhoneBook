@@ -1,3 +1,7 @@
+from tkinter import Label
+
+
+
 active_frames = []
 groups_objects = []
 contacts_objects = []
@@ -30,4 +34,9 @@ pin_btn = None
 
 search_canvas = None
 
-L1 = L2 = L3 = L4 = L5 = L6 = None
+L1: Label = None
+L2: Label = None
+L3: Label = None
+L4: Label = None
+L5: Label = None
+L6: Label = None
