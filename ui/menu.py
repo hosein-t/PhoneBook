@@ -31,6 +31,7 @@ class CreateMenu:
         self.group_box = None
         self.name_group_box = None
         self.color_box = None
+        self.pin_switch = None
 
         self.not_name_error = None
         self.not_number_error = None
@@ -243,9 +244,9 @@ class CreateMenu:
 
         shared.active_frames.append(self.add_group_frame)
 
-        pin_contact = BooleanVar(value=False)
-        pin_switch = CTkSwitch(self.add_group_frame, text="    :سنجاق کردن گروه", variable=pin_contact, switch_height=25, switch_width=50, button_length=1, font=("Vazir", 17), text_color="white", corner_radius=12, fg_color="#3A4A55", progress_color="#0078d4", button_color="white", button_hover_color="#D1FAE5", hover=True, border_width=0, command=self.pin_group)
-        pin_switch.place(x=248, y=155)
+        pin_group = BooleanVar(value=False)
+        self.pin_switch = CTkSwitch(self.add_group_frame, text="    :سنجاق کردن گروه", variable=pin_group, switch_height=25, switch_width=50, button_length=1, font=("Vazir", 17), text_color="white", corner_radius=12, fg_color="#3A4A55", progress_color="#0078d4", button_color="white", button_hover_color="#D1FAE5", hover=True, border_width=0, command=self.pin_group)
+        self.pin_switch.place(x=248, y=155)
 
         my_label(self.add_group_frame, text=":رنگ پروفایل گروه", x=325, y=251, size=13)
 
@@ -308,7 +309,12 @@ class CreateMenu:
                     MyMessagebox().message(".این گروه از قبل وجود دارد", "باشه", "⚠️ گروه تکراری")
                     return
 
-            groups_data.append({"name": name, "contacts": [], "color": self.change_color()})
+            groups_data.append({
+                "name": name,
+                "contacts": [],
+                "color": self.change_color(),
+                "pin": bool(self.pin_switch.get()),
+            })
             Group(name=name, color=self.change_color())
 
             write_json(groups_data, GROUPS_FILE)

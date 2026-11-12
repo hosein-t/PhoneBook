@@ -27,7 +27,7 @@ groups_canvas = None
 sound = None
 
 pin = None
-groups = None
+groups: list[str] = None
 registered = None
 
 pin_btn = None
