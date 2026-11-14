@@ -62,7 +62,6 @@ class CreateTitleBar:
         shared.pin_btn.image = self.pin_img
         shared.pin_btn.place(x=808, y=10, width=40, height=40)
         shared.pin_btn.bind("<Button-1>", lambda event: click_sound() if shared.sound.get() else None)
-        shared.pin_btn.bind("<Button-1>", self.count_button_click, add="+")
         shared.pin_btn.bind("<Enter>", lambda event: shared.pin_btn.config(bg="#3c3c3c"))
         shared.pin_btn.bind("<Leave>", lambda event: shared.pin_btn.config(bg="#0D1729"))
         tooltip(shared.pin_btn, "سنجاق کردن/برداشتن سنجاق پنجره")
@@ -71,7 +70,6 @@ class CreateTitleBar:
         sound_btn.image = self.sound_img
         sound_btn.place(x=768, y=10, width=40, height=40)
         sound_btn.bind("<Button-1>", lambda event: click_sound() if shared.sound.get() else None)
-        sound_btn.bind("<Button-1>", self.count_button_click, add="+")
         sound_btn.bind("<Enter>", lambda event: sound_btn.config(bg="#3c3c3c"))
         sound_btn.bind("<Leave>", lambda event: sound_btn.config(bg="#0D1729"))
         tooltip(sound_btn, "روشن/خاموش کردن صدای کلیک")
@@ -131,10 +129,6 @@ class CreateTitleBar:
 
         else:
             shared.search_canvas.place_forget()
-
-    @staticmethod
-    def count_button_click(_):
-        shared.click_count += 1
 
     @staticmethod
     def recycle_bin_command():

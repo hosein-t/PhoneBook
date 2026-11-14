@@ -13,7 +13,6 @@ def create_data_files() -> None:
             "registered": False,
             "sound": True,
             "pin": False,
-            "click_count": 0,
         }
 
         write_json(settings_data, SETTING_FILE)

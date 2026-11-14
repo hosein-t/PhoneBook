@@ -16,8 +16,6 @@ groups_count = None
 groups_count_text = None
 groups_count_label = None
 
-click_count = None
-
 favorite_count_label = None
 
 GROUPS_frame = None

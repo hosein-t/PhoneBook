@@ -10,7 +10,6 @@ def close_tab():
     data["sound"] = shared.sound.get()
     data["pin"] = shared.pin.get()
     data["registered"] = shared.registered
-    data["click_count"] = shared.click_count
 
     write_json(data, SETTING_FILE)
 

@@ -12,6 +12,5 @@ def load_fonts():
     add_font_resource_ex(get_asset(r"fonts\Samim.ttf"), 0x10, 0)
 
 def initialize_shared_data(data, groups_data):
-    shared.click_count = data["click_count"]
     shared.registered = data["registered"]
     shared.groups = [group["name"] for group in groups_data]

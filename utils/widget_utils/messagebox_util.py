@@ -24,8 +24,6 @@ class MyMessagebox:
         self.icon_label = None
         self.button = None
 
-        shared.click_count += 1
-
         self.messagebox = CTkToplevel(shared.root)
         self.messagebox.bind("<Destroy>", lambda event: overlay.destroy() if overlay is not None else None)
 

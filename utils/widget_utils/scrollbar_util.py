@@ -20,7 +20,6 @@ class MyScrollbar:
         self.scrollbar_dragging = True
         self.scrollbar.configure(width=15)
         click_sound() if shared.sound.get() else None
-        shared.click_count += 1
 
     def stop_drag(self, _):
         self.scrollbar_dragging = False

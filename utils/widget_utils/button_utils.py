@@ -1,27 +1,14 @@
-from collections.abc import Callable
-
 from tkinter import Button, PhotoImage
 from customtkinter import CTkButton, CTkImage
 from PIL import Image
 
 from PhoneBook import shared
-from PhoneBook.utils.widget_utils.messagebox_util import MyMessagebox
 from PhoneBook.utils.sound_utils import click_sound, close_sound
 
 
 
-def track_clicks(command: Callable) -> Callable:
-    def wrapper(*args, **kwargs):
-        shared.click_count += 1
-        if shared.click_count == 100:
-            shared.root.after(100, lambda: MyMessagebox(420).message("تبریک! تو تا الان روی ۱۰۰ تا دکمه‌های این برنامه !کلیک کردی", "😍 عه! چه جالب", "!دستاورد باز شد"))
-        result = command(*args, **kwargs) if command else None
-        return result
-    return wrapper
-
-
 def my_button(window, x, y, text=None, image=None, command=None, bg="#0D1729", fg="white", font="Vazir", size=12, style="normal", cursor="hand2", width=None, height=None, use_close_sound=False, **kwargs) -> Button:
-    button = Button(window, text=text, image=image, command=track_clicks(command), bg=bg, fg=fg, font=(font, size, style), cursor=cursor, width=width, height=height, **kwargs)
+    button = Button(window, text=text, image=image, command=command, bg=bg, fg=fg, font=(font, size, style), cursor=cursor, width=width, height=height, **kwargs)
     button.place(x=x, y=y)
 
     if not use_close_sound:
@@ -33,7 +20,7 @@ def my_button(window, x, y, text=None, image=None, command=None, bg="#0D1729", f
 
 
 def my_button_ctk(window, x, y, text=None, image=None, width=110, height=50, corner_radius=10, fg_color="#0D1729", hover_color="#3c3c3c", text_color="white", border_color="#009300", font="Vazir", size=12, command=None) -> CTkButton:
-    button = CTkButton(window, text=text, image=image, command=track_clicks(command), width=width, height=height, border_width=1, border_color=border_color if text != "لغو" else "#C94A4A", corner_radius=corner_radius, fg_color=fg_color, hover_color=hover_color, text_color=text_color, font=(font, size))
+    button = CTkButton(window, text=text, image=image, command=command, width=width, height=height, border_width=1, border_color=border_color if text != "لغو" else "#C94A4A", corner_radius=corner_radius, fg_color=fg_color, hover_color=hover_color, text_color=text_color, font=(font, size))
     button.place(x=x, y=y)
 
     button.bind("<Button-1>", lambda event: click_sound() if shared.sound.get() else None)
@@ -57,7 +44,7 @@ def button_image(window, address, x, y, width, height, bg="#0D1729", activebackg
 def button_image_ctk(window, address, x, y, width, height, bg_color="#112034", hover_color="#16243A", command=None) -> CTkButton:
     image = CTkImage(light_image=Image.open(address), dark_image=Image.open(address), size=(width, height))
 
-    button = CTkButton(window, image=image, text="", width=160, height=58, corner_radius=10, border_color="#26364A", border_width=1, fg_color=bg_color, hover_color=hover_color, anchor="w", command=track_clicks(command))
+    button = CTkButton(window, image=image, text="", width=160, height=58, corner_radius=10, border_color="#26364A", border_width=1, fg_color=bg_color, hover_color=hover_color, anchor="w", command=command)
     button.place(x=x, y=y)
 
     button.bind("<Button-1>", lambda event: click_sound() if shared.sound.get() else None)
