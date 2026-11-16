@@ -24,9 +24,6 @@
 ### Groups
 ![Groups](screenshots/groups.png)
 
-### Favorites
-![Favorites](screenshots/favorites.png)
-
 ### Add Contact
 ![Add Contact](screenshots/add_contact.png)
 
