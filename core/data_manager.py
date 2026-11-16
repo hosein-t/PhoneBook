@@ -5,8 +5,7 @@ from PhoneBook.utils.json_utils import read_json, write_json
 
 
 def create_data_files() -> None:
-    if not os.path.isdir(DATA_DIR):
-        os.mkdir(DATA_DIR)
+    os.makedirs(DATA_DIR, exist_ok=True)
 
     if not os.path.isfile(SETTING_FILE):
         settings_data = {
@@ -29,6 +28,7 @@ def create_data_files() -> None:
         }
 
         write_json([groups_data], GROUPS_FILE)
+
 
 def open_data_files() -> dict:
     data = read_json(SETTING_FILE)
